@@ -1,3 +1,13 @@
+# Description
+* It seems that once the App.js changes from class based Rreact to functional react, the test cases don't work very well.\
+* **jest-dom** has been updated and **`advanceTimersByTime`** of the newer library has been used.\
+* **`act()`** function is being used to let the react states get updated in the test mode.\
+The test cases will fail without wrapping `jest.advanceTimersByTime(10000)`. (_This is the issue that I faced in the hackerrank platform_)
+* There is also another issue with the jest timer mocks which has been highlighted in the test code.\
+The timer mock is not 100% synced with the actual timers in the components. For example, using `act(() => jest.advanceTimersByTime(10000))` will lead cause the tests fail but running  act(() => `jest.advanceTimersByTime(1000))` **10** times works fine.
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
